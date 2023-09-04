@@ -3,7 +3,7 @@
 HQCCHttpServer::HQCCHttpServer(QObject *parent) : QObject(parent){
     p_TcpServer = new QTcpServer();
     connect(p_TcpServer,&QTcpServer::newConnection,[&](){
-        QTcpSocket *p_TcpSocket = p_TcpServer->nextPendingConnection();
+        p_TcpSocket = p_TcpServer->nextPendingConnection();
         connect(p_TcpSocket,&QTcpSocket::readyRead,[&](){
             QMetaObject::invokeMethod(this,
                                       "HandleRequest",
