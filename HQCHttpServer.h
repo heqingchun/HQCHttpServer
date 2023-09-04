@@ -30,6 +30,7 @@ public:
 private:
     QTcpServer *p_TcpServer = nullptr;
     QMap<QString/*url*/,QString/*function*/> m_FunctionMap;
+    QTcpSocket *p_TcpSocket = nullptr;
 private:
     Q_INVOKABLE void HandleRequest(QTcpSocket* socket,const QByteArray& request);
 };
